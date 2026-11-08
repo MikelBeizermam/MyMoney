@@ -15,3 +15,4 @@ Config/Config.xcconfig
 supabase/.temp/
 supabase/.branches/
 .env
+Config/*.secret
