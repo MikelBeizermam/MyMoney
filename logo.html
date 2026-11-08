@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>MyMoney — App Icon Generator</title>
+<style>
+  body { background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: -apple-system, sans-serif; gap: 32px; }
+  h1 { color: #fff; font-size: 20px; margin: 0; }
+  .previews { display: flex; align-items: flex-end; gap: 24px; }
+  .preview-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .preview-wrap span { color: #8E8E93; font-size: 12px; }
+  canvas { border-radius: 22.5%; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+  button {
+    padding: 14px 40px; background: #34C759; border: none; border-radius: 14px;
+    color: #fff; font-size: 16px; font-weight: 700; cursor: pointer;
+    font-family: inherit; letter-spacing: 0.3px;
+  }
+  button:hover { background: #2eb350; }
+  .note { color: #8E8E93; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>MyMoney — App Icon</h1>
+
+<div class="previews">
+  <div class="preview-wrap">
+    <canvas id="c60" width="60" height="60"></canvas>
+    <span>60px</span>
+  </div>
+  <div class="preview-wrap">
+    <canvas id="c120" width="120" height="120"></canvas>
+    <span>120px</span>
+  </div>
+  <div class="preview-wrap">
+    <canvas id="c256" width="256" height="256"></canvas>
+    <span>256px</span>
+  </div>
+</div>
+
+<!-- Hidden full-res canvas -->
+<canvas id="c1024" width="1024" height="1024" style="display:none"></canvas>
+
+<button onclick="download()">⬇ הורד 1024×1024 PNG</button>
+<div class="note">שמור את הקובץ ← גרור לתוך AppIcon ב-Xcode</div>
+
+<script>
+function drawIcon(canvas) {
+  const s = canvas.width;
+  const ctx = canvas.getContext('2d');
+
+  // Background gradient — deep green to bright green
+  const grad = ctx.createRadialGradient(s * 0.4, s * 0.35, 0, s * 0.5, s * 0.5, s * 0.72);
+  grad.addColorStop(0,   '#2ECC71');
+  grad.addColorStop(0.6, '#1A9E52');
+  grad.addColorStop(1,   '#0A5C2E');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, s, s);
+
+  // Subtle noise overlay for depth
+  const noiseGrad = ctx.createLinearGradient(0, 0, s, s);
+  noiseGrad.addColorStop(0, 'rgba(255,255,255,0.06)');
+  noiseGrad.addColorStop(1, 'rgba(0,0,0,0.12)');
+  ctx.fillStyle = noiseGrad;
+  ctx.fillRect(0, 0, s, s);
+
+  // Soft inner glow circle
+  const glow = ctx.createRadialGradient(s * 0.5, s * 0.42, s * 0.05, s * 0.5, s * 0.42, s * 0.55);
+  glow.addColorStop(0, 'rgba(255,255,255,0.18)');
+  glow.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, s, s);
+
+  // ₪ symbol
+  ctx.save();
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  // Shadow
+  ctx.shadowColor = 'rgba(0,0,0,0.35)';
+  ctx.shadowBlur  = s * 0.04;
+  ctx.shadowOffsetY = s * 0.025;
+
+  // Main symbol
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = `900 ${s * 0.62}px -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif`;
+  ctx.fillText('₪', s * 0.5, s * 0.52);
+  ctx.restore();
+
+  // "MyMoney" label at bottom — small, only visible at large sizes
+  if (s >= 256) {
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+    ctx.font = `600 ${s * 0.065}px -apple-system, sans-serif`;
+    ctx.letterSpacing = s * 0.003 + 'px';
+    ctx.fillText('MyMoney', s * 0.5, s * 0.895);
+    ctx.restore();
+  }
+}
+
+// Draw on all canvases
+['c60','c120','c256','c1024'].forEach(id => drawIcon(document.getElementById(id)));
+
+function download() {
+  const c = document.getElementById('c1024');
+  const a = document.createElement('a');
+  a.download = 'MyMoney-AppIcon-1024.png';
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E4FA96BD9EE7926F26307A5 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5314AEAB316E29973BD6775B /* Supabase */; };
+		2359E4B698653EA0F6879CA7 /* SavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661E570AB0DF39D6C811266 /* SavingsView.swift */; };
+		297B1B27EA1ABB7F800E089D /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECAE6DFA3DED55685B6709 /* NewPasswordView.swift */; };
+		33A7884D04220B7A0F5076C8 /* AuthComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C655941583998AED01FF81FC /* AuthComponents.swift */; };
+		3C0BF84C000E6F0B33BFFD60 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A9E101352D3444F647D6F2 /* TransactionRowView.swift */; };
+		3DBD58C0D02D5D8432D4E1DF /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F4976C7711CF25581FC02 /* Color+Theme.swift */; };
+		3E38EB3C3A7833D61A4425B6 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABE1827961B4FAD9695C774 /* TransactionsView.swift */; };
+		44A8B732AB69E73DF1421890 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD6CAC3EA84052EDCDCB3 /* AddTransactionView.swift */; };
+		45CF529FAEC0FD586E4B331D /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006C7D9F076FF68DAE10A0F /* SyncService.swift */; };
+		4FD8B3D825CA315344621604 /* SyncDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D149785BABDA2EE1983D8FC1 /* SyncDTOs.swift */; };
+		555842AC9A190C39CA9B0CEE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0C753EF30CA7595DFA038 /* LoginView.swift */; };
+		5593A7F0C3F59A0CEA02C80F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72939A44516736E4431ABEE6 /* AuthManager.swift */; };
+		793FB60273C3F06F9DDF4927 /* MyMoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D6608A1CC84C5C95B14B7 /* MyMoneyApp.swift */; };
+		870D3FC96AAB8DB2478A30CF /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEFF16D2906891391F2F364 /* ForgotPasswordView.swift */; };
+		8AB3A9A5A226CEF4ED71BADF /* SavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33CF1735328D678B9DD8113 /* SavingsGoal.swift */; };
+		934A06370B7957E97587BA7E /* NotificationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F88F93E7085119EF499287 /* NotificationParser.swift */; };
+		9E9CD320B28F6FE355BE3BD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C769C7DC3E4F4BF4112466A /* ContentView.swift */; };
+		A045341A1142324A5C48D9CD /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29349BCD67F5ECACA1370A /* SupabaseService.swift */; };
+		A5D6805F2B6EE39156BEC443 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71A0A5982E9317A9E3C2F4 /* SettingsView.swift */; };
+		AFCF78C20D5E1D8022415270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D6AE63205D650B2C69FB9 /* Assets.xcassets */; };
+		B54775CC6D648C4FFACB3318 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC44DB208EB0A5E09043CB6 /* RootView.swift */; };
+		BAF5F7EF6290D665E809716C /* CategoryClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD892E28D9424EA90947A2 /* CategoryClassifier.swift */; };
+		E6F0F824B73488713268D23A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AB7008D5C97FAC5B8BE88E /* Transaction.swift */; };
+		E848D12B8F7D8075CFE8B7D3 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E917CE90F418108898D9C6 /* DashboardView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0006C7D9F076FF68DAE10A0F /* SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
+		1EC86BA7302EBB72C4AFCF03 /* MyMoney.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F51F372425F7F058DD2FA55 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2B3D6AE63205D650B2C69FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AB0C753EF30CA7595DFA038 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4B71A0A5982E9317A9E3C2F4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4EEFF16D2906891391F2F364 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		566BD6CAC3EA84052EDCDCB3 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		6C769C7DC3E4F4BF4112466A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		72939A44516736E4431ABEE6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		7661E570AB0DF39D6C811266 /* SavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsView.swift; sourceTree = "<group>"; };
+		86AB7008D5C97FAC5B8BE88E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		8F29349BCD67F5ECACA1370A /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
+		927BD0F335CEC701BF72B897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9ABE1827961B4FAD9695C774 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		A44D6608A1CC84C5C95B14B7 /* MyMoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoneyApp.swift; sourceTree = "<group>"; };
+		AAC44DB208EB0A5E09043CB6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B2ECAE6DFA3DED55685B6709 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		B33CF1735328D678B9DD8113 /* SavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoal.swift; sourceTree = "<group>"; };
+		B9F88F93E7085119EF499287 /* NotificationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationParser.swift; sourceTree = "<group>"; };
+		C655941583998AED01FF81FC /* AuthComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthComponents.swift; sourceTree = "<group>"; };
+		D149785BABDA2EE1983D8FC1 /* SyncDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDTOs.swift; sourceTree = "<group>"; };
+		D2E917CE90F418108898D9C6 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		DFAD892E28D9424EA90947A2 /* CategoryClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryClassifier.swift; sourceTree = "<group>"; };
+		E0A9E101352D3444F647D6F2 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowView.swift; sourceTree = "<group>"; };
+		EE2F4976C7711CF25581FC02 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC67064C5A9973D8BE547CBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E4FA96BD9EE7926F26307A5 /* Supabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B76BAE62368A07BC76D0812 /* Savings */ = {
+			isa = PBXGroup;
+			children = (
+				7661E570AB0DF39D6C811266 /* SavingsView.swift */,
+			);
+			path = Savings;
+			sourceTree = "<group>";
+		};
+		28CF5B13489FFD0BF366FADE /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D2E917CE90F418108898D9C6 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		3BE6572C9F5ECAD10FFEB151 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C655941583998AED01FF81FC /* AuthComponents.swift */,
+				4EEFF16D2906891391F2F364 /* ForgotPasswordView.swift */,
+				3AB0C753EF30CA7595DFA038 /* LoginView.swift */,
+				B2ECAE6DFA3DED55685B6709 /* NewPasswordView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4C2331EABC372E7FDDD20E30 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B3D6AE63205D650B2C69FB9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		515F304523C96B6BF322C8DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				72939A44516736E4431ABEE6 /* AuthManager.swift */,
+				DFAD892E28D9424EA90947A2 /* CategoryClassifier.swift */,
+				B9F88F93E7085119EF499287 /* NotificationParser.swift */,
+				0006C7D9F076FF68DAE10A0F /* SyncService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5C8ECF84D9513BF59CA31AB4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE2F4976C7711CF25581FC02 /* Color+Theme.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63E3C4FA8E286DDDFD926DF7 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				566BD6CAC3EA84052EDCDCB3 /* AddTransactionView.swift */,
+				E0A9E101352D3444F647D6F2 /* TransactionRowView.swift */,
+				9ABE1827961B4FAD9695C774 /* TransactionsView.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		7A19F51848231703F996337E /* Supabase */ = {
+			isa = PBXGroup;
+			children = (
+				8F29349BCD67F5ECACA1370A /* SupabaseService.swift */,
+			);
+			path = Supabase;
+			sourceTree = "<group>";
+		};
+		8AA205E686F8E9E2134C32DF /* MyMoney */ = {
+			isa = PBXGroup;
+			children = (
+				6C769C7DC3E4F4BF4112466A /* ContentView.swift */,
+				927BD0F335CEC701BF72B897 /* Info.plist */,
+				A44D6608A1CC84C5C95B14B7 /* MyMoneyApp.swift */,
+				AAC44DB208EB0A5E09043CB6 /* RootView.swift */,
+				5C8ECF84D9513BF59CA31AB4 /* Extensions */,
+				BCF767BB0DBB7B7FE3654C46 /* Models */,
+				4C2331EABC372E7FDDD20E30 /* Resources */,
+				515F304523C96B6BF322C8DF /* Services */,
+				7A19F51848231703F996337E /* Supabase */,
+				E6BF1BFD0CAF62C160442B38 /* Views */,
+			);
+			path = MyMoney;
+			sourceTree = "<group>";
+		};
+		8D3FCFAA4C0F539D7AC7A54C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4B71A0A5982E9317A9E3C2F4 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		BCF767BB0DBB7B7FE3654C46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B33CF1735328D678B9DD8113 /* SavingsGoal.swift */,
+				D149785BABDA2EE1983D8FC1 /* SyncDTOs.swift */,
+				86AB7008D5C97FAC5B8BE88E /* Transaction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D78B7BD945800CC789E88A3A /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1F51F372425F7F058DD2FA55 /* Config.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E6BF1BFD0CAF62C160442B38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BE6572C9F5ECAD10FFEB151 /* Auth */,
+				28CF5B13489FFD0BF366FADE /* Dashboard */,
+				0B76BAE62368A07BC76D0812 /* Savings */,
+				8D3FCFAA4C0F539D7AC7A54C /* Settings */,
+				63E3C4FA8E286DDDFD926DF7 /* Transactions */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA9E76225A7AE4C82229B42C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1EC86BA7302EBB72C4AFCF03 /* MyMoney.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFBBF0E5BB0A737217899866 = {
+			isa = PBXGroup;
+			children = (
+				D78B7BD945800CC789E88A3A /* Config */,
+				8AA205E686F8E9E2134C32DF /* MyMoney */,
+				FA9E76225A7AE4C82229B42C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0F296971897B21848714884 /* MyMoney */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AA2B44D680B2CB23E5159C8 /* Build configuration list for PBXNativeTarget "MyMoney" */;
+			buildPhases = (
+				34C65910A2F0902FC28EF93D /* Sources */,
+				58AD847DEE72EA38E2F30884 /* Resources */,
+				FC67064C5A9973D8BE547CBB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyMoney;
+			packageProductDependencies = (
+				5314AEAB316E29973BD6775B /* Supabase */,
+			);
+			productName = MyMoney;
+			productReference = 1EC86BA7302EBB72C4AFCF03 /* MyMoney.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		126C223BF641A0692862610A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = DF9611E664C880A82ACF1AEE /* Build configuration list for PBXProject "MyMoney" */;
+			developmentRegion = he;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				he,
+			);
+			mainGroup = FFBBF0E5BB0A737217899866;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F7EA79BE91995CA2DAA76BE6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FA9E76225A7AE4C82229B42C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0F296971897B21848714884 /* MyMoney */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58AD847DEE72EA38E2F30884 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFCF78C20D5E1D8022415270 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		34C65910A2F0902FC28EF93D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44A8B732AB69E73DF1421890 /* AddTransactionView.swift in Sources */,
+				33A7884D04220B7A0F5076C8 /* AuthComponents.swift in Sources */,
+				5593A7F0C3F59A0CEA02C80F /* AuthManager.swift in Sources */,
+				BAF5F7EF6290D665E809716C /* CategoryClassifier.swift in Sources */,
+				3DBD58C0D02D5D8432D4E1DF /* Color+Theme.swift in Sources */,
+				9E9CD320B28F6FE355BE3BD0 /* ContentView.swift in Sources */,
+				E848D12B8F7D8075CFE8B7D3 /* DashboardView.swift in Sources */,
+				870D3FC96AAB8DB2478A30CF /* ForgotPasswordView.swift in Sources */,
+				555842AC9A190C39CA9B0CEE /* LoginView.swift in Sources */,
+				793FB60273C3F06F9DDF4927 /* MyMoneyApp.swift in Sources */,
+				297B1B27EA1ABB7F800E089D /* NewPasswordView.swift in Sources */,
+				934A06370B7957E97587BA7E /* NotificationParser.swift in Sources */,
+				B54775CC6D648C4FFACB3318 /* RootView.swift in Sources */,
+				8AB3A9A5A226CEF4ED71BADF /* SavingsGoal.swift in Sources */,
+				2359E4B698653EA0F6879CA7 /* SavingsView.swift in Sources */,
+				A5D6805F2B6EE39156BEC443 /* SettingsView.swift in Sources */,
+				A045341A1142324A5C48D9CD /* SupabaseService.swift in Sources */,
+				4FD8B3D825CA315344621604 /* SyncDTOs.swift in Sources */,
+				45CF529FAEC0FD586E4B331D /* SyncService.swift in Sources */,
+				E6F0F824B73488713268D23A /* Transaction.swift in Sources */,
+				3C0BF84C000E6F0B33BFFD60 /* TransactionRowView.swift in Sources */,
+				3E38EB3C3A7833D61A4425B6 /* TransactionsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		67485E80CEB36F3E3214F025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F51F372425F7F058DD2FA55 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9404287818091C1594CC6B10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MyMoney/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikibeizerman.mymoney;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		9DE55FB463D2A9EEF637D076 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MyMoney/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikibeizerman.mymoney;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CCF58B419925D4566999C15D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F51F372425F7F058DD2FA55 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8AA2B44D680B2CB23E5159C8 /* Build configuration list for PBXNativeTarget "MyMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DE55FB463D2A9EEF637D076 /* Debug */,
+				9404287818091C1594CC6B10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DF9611E664C880A82ACF1AEE /* Build configuration list for PBXProject "MyMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF58B419925D4566999C15D /* Debug */,
+				67485E80CEB36F3E3214F025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F7EA79BE91995CA2DAA76BE6 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5314AEAB316E29973BD6775B /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7EA79BE91995CA2DAA76BE6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 126C223BF641A0692862610A /* Project object */;
+}

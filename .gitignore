@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+DerivedData/
+build/
+*.xcworkspace/xcuserdata/
+.swiftpm/
+
+# Secrets – copy Config.example.xcconfig instead
+Config/Config.xcconfig
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+.env
