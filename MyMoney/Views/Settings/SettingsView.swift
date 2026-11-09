@@ -3,10 +3,14 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(AuthManager.self) private var auth
     @Environment(SyncService.self) private var sync
+    @Environment(AppLock.self) private var lock
 
     @State private var showChangePassword = false
     @State private var confirmSignOut = false
     @State private var isSigningOut = false
+    @State private var confirmDelete = false
+    @State private var isDeleting = false
+    @State private var deleteError: String?
 
     var body: some View {
         ZStack {
@@ -70,6 +74,23 @@ struct SettingsView: View {
                 .listRowBackground(Color.cardBG)
 
                 Section {
+                    Toggle(isOn: Binding(
+                        get: { lock.isEnabled },
+                        set: { newValue in Task { await lock.setEnabled(newValue) } }
+                    )) {
+                        Label("נעילה עם \(lock.biometryName)", systemImage: "faceid")
+                            .foregroundStyle(.white)
+                    }
+                    .tint(.accentGreen)
+                    .disabled(!lock.isAvailable)
+                } header: {
+                    Text("אבטחה")
+                } footer: {
+                    Text("האפליקציה תינעל כשתצא ממנה, והסכומים יוסתרו במסך החלפת האפליקציות.")
+                }
+                .listRowBackground(Color.cardBG)
+
+                Section {
                     VStack(alignment: .trailing, spacing: 12) {
                         Text("כדי שעסקאות יתעדכנו אוטומטית:")
                             .font(.subheadline.bold())
@@ -110,6 +131,21 @@ struct SettingsView: View {
                         }
                     }
                     .disabled(isSigningOut)
+
+                    Button(role: .destructive) {
+                        confirmDelete = true
+                    } label: {
+                        HStack {
+                            Spacer()
+                            if isDeleting { ProgressView() } else { Text("מחיקת חשבון") }
+                            Spacer()
+                        }
+                    }
+                    .disabled(isDeleting)
+                } footer: {
+                    if let deleteError {
+                        Text(deleteError).foregroundStyle(.accentRed)
+                    }
                 }
                 .listRowBackground(Color.cardBG)
 
@@ -128,6 +164,12 @@ struct SettingsView: View {
         .navigationTitle("הגדרות")
         .sheet(isPresented: $showChangePassword) {
             NewPasswordView(context: .change)
+        }
+        .alert("למחוק את החשבון לצמיתות?", isPresented: $confirmDelete) {
+            Button("מחק חשבון", role: .destructive, action: deleteAccount)
+            Button("ביטול", role: .cancel) {}
+        } message: {
+            Text("החשבון וכל העסקאות ויעדי החיסכון יימחקו מהענן, מהאתר ומהמכשיר. אי אפשר לבטל את הפעולה.")
         }
         .confirmationDialog(
             sync.hasPendingChanges ? "יש שינויים שעוד לא סונכרנו" : "להתנתק מהחשבון?",
@@ -163,6 +205,19 @@ struct SettingsView: View {
                         .foregroundStyle(.textSecondary)
                 }
             }
+        }
+    }
+
+    private func deleteAccount() {
+        isDeleting = true
+        deleteError = nil
+        Task {
+            do {
+                try await auth.deleteAccount()   // RootView then clears local data
+            } catch {
+                deleteError = AuthFailure(error).message
+            }
+            isDeleting = false
         }
     }
 

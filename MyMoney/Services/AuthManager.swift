@@ -119,6 +119,17 @@ final class AuthManager {
         apply(nil)
     }
 
+    /// Permanently deletes the account and all its cloud data (App Store guideline 5.1.1(v)).
+    func deleteAccount() async throws {
+        do {
+            try await SupabaseService.client.rpc("delete_my_account").execute()
+        } catch {
+            throw error is URLError ? AuthFailure(error) : AuthFailure(message: "מחיקת החשבון נכשלה. נסה שוב.")
+        }
+        try? await auth.signOut(scope: .local)
+        apply(nil)
+    }
+
     /// Handles `mymoney://auth-callback?...` links from confirmation / reset emails.
     func handleAuthCallback(_ url: URL) async -> String? {
         do {

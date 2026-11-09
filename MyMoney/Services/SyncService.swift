@@ -29,6 +29,8 @@ final class SyncService {
     private var isRunning = false
     private var rerunRequested = false
     private var debounceTask: Task<Void, Never>?
+    private var realtimeChannel: RealtimeChannelV2?
+    private var realtimeTask: Task<Void, Never>?
 
     private static let pageSize = 500
 
@@ -45,11 +47,13 @@ final class SyncService {
         lastSyncedAt = UserDefaults.standard.object(forKey: lastSyncKey(userId)) as? Date
         claimLocalData(for: userId)
         await sync()
+        await startRealtime(userId: userId)
     }
 
     /// Called after sign-out. Removes the previous user's data from this device.
     func deactivate() {
         debounceTask?.cancel()
+        stopRealtime()
         userId = nil
         lastSyncedAt = nil
         status = .idle
@@ -105,6 +109,42 @@ final class SyncService {
             rerunRequested = false
             isRunning = false
             await sync()
+        }
+    }
+
+    // MARK: - Realtime
+
+    /// Listens for row changes made on other devices (e.g. the web app) and pulls them immediately.
+    /// RLS on the server guarantees only this user's rows are broadcast.
+    private func startRealtime(userId: UUID) async {
+        stopRealtime()
+        let channel = SupabaseService.client.channel("sync-\(userId.uuidString.lowercased())")
+        let transactionChanges = channel.postgresChange(
+            AnyAction.self, schema: "public", table: "transactions", filter: .eq("user_id", value: userId)
+        )
+        let goalChanges = channel.postgresChange(
+            AnyAction.self, schema: "public", table: "savings_goals", filter: .eq("user_id", value: userId)
+        )
+        do {
+            try await channel.subscribeWithError()
+        } catch {
+            return // Not fatal: sync still runs on launch, foreground and every local change.
+        }
+        realtimeChannel = channel
+        realtimeTask = Task { [weak self] in
+            await withTaskGroup(of: Void.self) { group in
+                group.addTask { for await _ in transactionChanges { await self?.requestSync() } }
+                group.addTask { for await _ in goalChanges { await self?.requestSync() } }
+            }
+        }
+    }
+
+    private func stopRealtime() {
+        realtimeTask?.cancel()
+        realtimeTask = nil
+        if let channel = realtimeChannel {
+            realtimeChannel = nil
+            Task { await SupabaseService.client.removeChannel(channel) }
         }
     }
 

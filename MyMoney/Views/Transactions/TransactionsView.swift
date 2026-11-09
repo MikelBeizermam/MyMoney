@@ -9,6 +9,7 @@ struct TransactionsView: View {
     @State private var selectedCard: CardType? = nil
     @State private var selectedCategory: Category? = nil
     @State private var showAddSheet = false
+    @State private var editing: Transaction?
 
     private var filtered: [Transaction] {
         transactions.filter {
@@ -29,7 +30,11 @@ struct TransactionsView: View {
                 } else {
                     List {
                         ForEach(filtered) { transaction in
-                            TransactionRowView(transaction: transaction)
+                            Button { editing = transaction } label: {
+                                TransactionRowView(transaction: transaction)
+                                    .contentShape(Rectangle())
+                            }
+                            .buttonStyle(.plain)
                                 .listRowBackground(Color.cardBG)
                                 .listRowSeparatorTint(Color.white.opacity(0.08))
                         }
@@ -37,6 +42,7 @@ struct TransactionsView: View {
                     }
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
+                    .refreshable { await sync.sync() }
                 }
             }
         }
@@ -56,6 +62,7 @@ struct TransactionsView: View {
         .sheet(isPresented: $showAddSheet) {
             AddTransactionView()
         }
+        .sheet(item: $editing) { AddTransactionView(existing: $0) }
         .environment(\.layoutDirection, .rightToLeft)
     }
 

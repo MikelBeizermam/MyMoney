@@ -5,6 +5,7 @@ import SwiftData
 struct MyMoneyApp: App {
     private let container: ModelContainer
     @State private var auth = AuthManager()
+    @State private var lock = AppLock()
     @State private var sync: SyncService
 
     init() {
@@ -22,6 +23,7 @@ struct MyMoneyApp: App {
                 RootView()
                     .environment(auth)
                     .environment(sync)
+                    .environment(lock)
             } else {
                 MissingConfigView()
             }

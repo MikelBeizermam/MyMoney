@@ -33,6 +33,7 @@ targets:
       path: MyMoney/Info.plist
       properties:
         CFBundleDisplayName: MyMoney
+        NSFaceIDUsageDescription: MyMoney משתמשת ב-Face ID כדי לנעול את האפליקציה ולהגן על הנתונים הפיננסיים שלך.
         CFBundleDevelopmentRegion: he
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]

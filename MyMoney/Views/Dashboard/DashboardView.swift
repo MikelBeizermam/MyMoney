@@ -5,6 +5,14 @@ import Charts
 struct DashboardView: View {
     @Query(filter: #Predicate<Transaction> { $0.deletedAt == nil }, sort: \Transaction.date, order: .reverse)
     private var transactions: [Transaction]
+    @Environment(AuthManager.self) private var auth
+    @Environment(SyncService.self) private var sync
+    @State private var editing: Transaction?
+
+    private var greeting: String {
+        let first = auth.displayName.split(separator: " ").first.map(String.init) ?? ""
+        return first.isEmpty ? "שלום 👋" : "שלום \(first) 👋"
+    }
 
     private var thisMonthTransactions: [Transaction] {
         let start = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: .now))!
@@ -35,7 +43,9 @@ struct DashboardView: View {
                 .padding(.horizontal, 16)
                 .padding(.bottom, 20)
             }
+            .refreshable { await sync.sync() }
         }
+        .sheet(item: $editing) { AddTransactionView(existing: $0) }
         .environment(\.layoutDirection, .rightToLeft)
     }
 
@@ -44,7 +54,7 @@ struct DashboardView: View {
     private var headerView: some View {
         HStack {
             VStack(alignment: .trailing, spacing: 2) {
-                Text("שלום 👋")
+                Text(greeting)
                     .font(.title2.bold())
                     .foregroundStyle(.white)
                 Text(currentMonthLabel)
@@ -114,7 +124,11 @@ struct DashboardView: View {
                     .padding(.vertical, 12)
             } else {
                 ForEach(transactions.prefix(5)) { transaction in
-                    TransactionRowView(transaction: transaction)
+                    Button { editing = transaction } label: {
+                        TransactionRowView(transaction: transaction)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
                     if transaction.id != transactions.prefix(5).last?.id {
                         Divider().background(Color.white.opacity(0.08))
                     }

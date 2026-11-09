@@ -6,6 +6,7 @@ import SwiftData
 struct RootView: View {
     @Environment(AuthManager.self) private var auth
     @Environment(SyncService.self) private var sync
+    @Environment(AppLock.self) private var lock
     @Environment(\.modelContext) private var modelContext
     @Environment(\.scenePhase) private var scenePhase
 
@@ -27,6 +28,12 @@ struct RootView: View {
                 ContentView(selectedTab: $selectedTab)
             }
         }
+        .overlay {
+            // Covers the app while locked, and hides balances in the app switcher.
+            if auth.phase == .signedIn && lock.isEnabled && (lock.isLocked || scenePhase != .active) {
+                LockView()
+            }
+        }
         .animation(.easeInOut(duration: 0.25), value: auth.phase)
         .task { auth.start() }
         .onChange(of: auth.userId, initial: true) { _, newId in
@@ -39,11 +46,13 @@ struct RootView: View {
                     }
                 } else if auth.phase == .signedOut {
                     sync.deactivate()
+                    lock.reset()
                 }
             }
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active { sync.requestSync() }
+            if phase == .background { lock.lockIfNeeded() }
         }
         .onOpenURL(perform: handleDeepLink)
         .sheet(isPresented: $auth.isRecoveringPassword) {
