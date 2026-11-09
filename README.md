@@ -2,7 +2,7 @@
 
 An offline-first iOS app for tracking credit-card spending and savings goals. It has email/password accounts and cloud sync through **Supabase**.
 
-🌐 **[Live interactive demo](https://mikelbeizerman.github.io/MyMoney/)**: open it on your phone for the full-screen experience<br>
+🌐 **[Live interactive demo](https://mikelbeizermam.github.io/MyMoney/)**: open it on your phone for the full-screen experience<br>
 📄 **[Product & technical spec (Hebrew)](docs/SPEC.md)**
 
 <img src="docs/screenshots/login.png" width="280" alt="Login screen" />
