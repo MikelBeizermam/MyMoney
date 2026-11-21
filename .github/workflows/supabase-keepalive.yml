@@ -1,0 +1,52 @@
+# Keeps the free Supabase projects behind MyMoney and OneWallet from pausing.
+# Supabase pauses free projects after about a week without activity, so this
+# calls a tiny keepalive() function in each project every three days.
+# The function only returns the current time and reads no table data.
+# The keys below are publishable keys: they are already public in the deployed
+# sites and only allow what each table's row-level security policies allow.
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: "17 6 */3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping MyMoney
+        run: |
+          curl -fsS -o /dev/null -w "MyMoney: %{http_code}\n" \
+            -X POST "https://jxyvaafkuupjtfwmydqe.supabase.co/rest/v1/rpc/keepalive" \
+            -H "apikey: sb_publishable_L9noQ7UZPOE4-1nmu11AYw_aZla_W7k" -H "Content-Type: application/json" -d "{}"
+      - name: Ping OneWallet
+        run: |
+          curl -fsS -o /dev/null -w "OneWallet: %{http_code}\n" \
+            -X POST "https://kbbyqmfjcwquabervkkt.supabase.co/rest/v1/rpc/keepalive" \
+            -H "apikey: sb_publishable_Sk8KPR0XxPRxVu7nt4rD0Q_pnlbl-cn" -H "Content-Type: application/json" -d "{}"
+
+  # GitHub turns off scheduled workflows in repositories with no activity for
+  # 60 days. A small monthly commit keeps this schedule running.
+  heartbeat:
+    runs-on: ubuntu-latest
+    needs: ping
+    steps:
+      - uses: actions/checkout@v4
+      - name: Monthly heartbeat commit
+        run: |
+          last=$(git log -1 --format=%ct)
+          now=$(date +%s)
+          if [ $((now - last)) -gt $((30*24*3600)) ]; then
+            date -u +%Y-%m-%dT%H:%M:%SZ > .github/keepalive.txt
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/keepalive.txt
+            git commit -m "Keep-alive heartbeat"
+            git push
+          else
+            echo "Recent activity found, no heartbeat needed."
+          fi
