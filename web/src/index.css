@@ -30,8 +30,32 @@
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
+:root[data-theme='dark'] {
+    --bg: #0d0e14;
+    --card: #1a1b23;
+    --card-2: #22232d;
+    --line: rgba(255, 255, 255, 0.07);
+    --text: #ffffff;
+    --text-2: #a1a1aa;
+    --text-3: #71717a;
+    --green: #4ade80;
+    --green-ink: #052e16;
+    --green-soft: rgba(74, 222, 128, 0.12);
+    --red: #ff6b6b;
+    --blue: #60a5fa;
+    --hover: rgba(255, 255, 255, 0.03);
+    --track: rgba(255, 255, 255, 0.06);
+    --bar-glass: rgba(13, 14, 20, 0.88);
+    --sidebar: #0b0c11;
+    --tooltip: #2a2b36;
+    --seg-on: #33343f;
+    --overlay: rgba(0, 0, 0, 0.6);
+    --shadow: none;
+    --hero: var(--card);
+    color-scheme: dark;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #0d0e14;
     --card: #1a1b23;
     --card-2: #22232d;
@@ -182,9 +206,9 @@ button.tx:hover { background: var(--hover); }
 .input-wrap .input { padding-inline-start: 46px; }
 .input-wrap .reveal { position: absolute; inset-inline-start: 6px; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; color: var(--text-2); display: grid; place-items: center; border-radius: 10px; }
 .hint { font-size: 12px; color: var(--text-3); }
-.segmented { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; background: var(--card); border-radius: 12px; padding: 3px; border: 1px solid var(--line); }
+.segmented { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; background: var(--card-2); border-radius: 12px; padding: 3px; border: 1px solid var(--line); }
 .segmented button { height: 36px; border-radius: 9px; color: var(--text-2); font-weight: 600; font-size: 14px; }
-.segmented button[aria-pressed='true'] { background: var(--seg-on); color: var(--text); box-shadow: var(--shadow); }
+.segmented button[aria-pressed='true'] { background: var(--seg-on); color: var(--text); box-shadow: 0 1px 3px rgba(17, 24, 39, 0.12); }
 input[type='range'] { width: 100%; accent-color: var(--green); }
 
 .btn {

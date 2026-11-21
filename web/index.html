@@ -18,6 +18,12 @@
     <meta property="og:image" content="https://mikelbeizermam.github.io/MyMoney/icon.png" />
     <meta property="og:url" content="https://mikelbeizermam.github.io/MyMoney/" />
     <meta name="twitter:card" content="summary" />
+    <script>
+      try {
+        var t = localStorage.getItem('mymoney-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t)
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

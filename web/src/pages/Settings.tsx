@@ -3,12 +3,19 @@ import { useAuth } from '../auth/AuthProvider'
 import { Banner, Button, Field, Modal } from '../components/ui'
 import type { FinanceData } from '../lib/useFinanceData'
 import NewPasswordModal from './NewPasswordModal'
+import { getThemePref, setThemePref, type ThemePref } from '../lib/theme'
 
 export default function Settings({ data }: { data: FinanceData }) {
   const auth = useAuth()
   const [changePassword, setChangePassword] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [signingOut, setSigningOut] = useState(false)
+  const [theme, setTheme] = useState<ThemePref>(getThemePref)
+
+  function chooseTheme(pref: ThemePref) {
+    setTheme(pref)
+    setThemePref(pref)
+  }
 
   async function signOut() {
     if (!window.confirm('להתנתק מהחשבון? הנתונים שמורים בענן ויחזרו כשתתחבר שוב.')) return
@@ -30,6 +37,19 @@ export default function Settings({ data }: { data: FinanceData }) {
           </span>
         </div>
         <button className="list-row" onClick={() => setChangePassword(true)}>🔑 <span style={{ flex: 1 }}>שינוי סיסמה</span><span className="muted">‹</span></button>
+      </section>
+
+      <p className="section-label">תצוגה</p>
+      <section className="list">
+        <div className="list-row" style={{ flexDirection: 'column', alignItems: 'stretch', gap: 10 }}>
+          <span>ערכת צבעים</span>
+          <div className="segmented" role="group" aria-label="ערכת צבעים">
+            {([['light', '☀️ בהיר'], ['dark', '🌙 כהה'], ['system', 'לפי המכשיר']] as [ThemePref, string][]).map(([value, label]) => (
+              <button key={value} aria-pressed={theme === value} onClick={() => chooseTheme(value)}>{label}</button>
+            ))}
+          </div>
+          <span className="muted small">״לפי המכשיר״ עובר אוטומטית בין בהיר לכהה לפי הגדרות הטלפון או המחשב.</span>
+        </div>
       </section>
 
       <p className="section-label">סנכרון</p>
