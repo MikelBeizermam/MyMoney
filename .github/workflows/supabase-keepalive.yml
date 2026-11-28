@@ -1,14 +1,15 @@
 # Keeps the free Supabase projects behind MyMoney and OneWallet from pausing.
-# Supabase pauses free projects after about a week without activity, so this
-# calls a tiny keepalive() function in each project every three days.
-# The function only returns the current time and reads no table data.
+# Supabase pauses free projects that show too little database activity over a
+# week; its docs say a few requests a day are typically enough. So this runs
+# every four hours and calls a keepalive() function in each project three times.
+# The function queries a user table but returns only the current time.
 # The keys below are publishable keys: they are already public in the deployed
 # sites and only allow what each table's row-level security policies allow.
 name: Supabase keep-alive
 
 on:
   schedule:
-    - cron: "17 6 */3 * *"
+    - cron: "17 */4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -20,14 +21,21 @@ jobs:
     steps:
       - name: Ping MyMoney
         run: |
-          curl -fsS -o /dev/null -w "MyMoney: %{http_code}\n" \
-            -X POST "https://jxyvaafkuupjtfwmydqe.supabase.co/rest/v1/rpc/keepalive" \
-            -H "apikey: sb_publishable_L9noQ7UZPOE4-1nmu11AYw_aZla_W7k" -H "Content-Type: application/json" -d "{}"
+          for i in 1 2 3; do
+            curl -fsS -o /dev/null -w "MyMoney: %{http_code}\n" \
+              -X POST "https://jxyvaafkuupjtfwmydqe.supabase.co/rest/v1/rpc/keepalive" \
+              -H "apikey: sb_publishable_L9noQ7UZPOE4-1nmu11AYw_aZla_W7k" -H "Content-Type: application/json" -d "{}"
+            sleep 5
+          done
       - name: Ping OneWallet
+        if: always()
         run: |
-          curl -fsS -o /dev/null -w "OneWallet: %{http_code}\n" \
-            -X POST "https://kbbyqmfjcwquabervkkt.supabase.co/rest/v1/rpc/keepalive" \
-            -H "apikey: sb_publishable_Sk8KPR0XxPRxVu7nt4rD0Q_pnlbl-cn" -H "Content-Type: application/json" -d "{}"
+          for i in 1 2 3; do
+            curl -fsS -o /dev/null -w "OneWallet: %{http_code}\n" \
+              -X POST "https://kbbyqmfjcwquabervkkt.supabase.co/rest/v1/rpc/keepalive" \
+              -H "apikey: sb_publishable_Sk8KPR0XxPRxVu7nt4rD0Q_pnlbl-cn" -H "Content-Type: application/json" -d "{}"
+            sleep 5
+          done
 
   # GitHub turns off scheduled workflows in repositories with no activity for
   # 60 days. A small monthly commit keeps this schedule running.
